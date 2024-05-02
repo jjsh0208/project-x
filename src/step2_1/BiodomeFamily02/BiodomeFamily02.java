@@ -43,7 +43,9 @@ public class BiodomeFamily02 {
                     break;
                 case 3:
                     System.out.println("전체 동식물 목록 출력 : ");
+                    int id = 1;
                     for (Organism O : Ln.organismList){
+                        System.out.print(id++ + ". ");
                         O.displayInfo();
                     }
                     break;

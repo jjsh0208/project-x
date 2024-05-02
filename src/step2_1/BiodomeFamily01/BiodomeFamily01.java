@@ -36,8 +36,10 @@ public class BiodomeFamily01 {
                     Ln.OrganismRemove(removeName);
                     break;
                 case 3:
+                    int id = 1;
                     System.out.println("전체 동식물 목록 출력 : ");
                     for (Organism O : Ln.organismList){
+                        System.out.print(id++ + ". ");
                         O.displayInfo();
                     }
                     break;
