@@ -54,6 +54,12 @@ public class RoadToBiodome10 {
             int plant1 = Integer.parseInt(text[0]);
             int plant2 = Integer.parseInt(text[1]);
 
+            // 숫자로만 구성되었는지 확인
+            if(!text[0].matches("\\d+") || !text[1].matches("\\d+")){
+                System.out.println("입력값은 숫자여야 합니다.");
+                return;
+            }
+
             if(plant1 < 1  || plant1 > 100 || plant2 < 1 || plant2 > 100){
                 System.out.println("연구 대상 식물은 최대 100가지입니다");
                 return;
