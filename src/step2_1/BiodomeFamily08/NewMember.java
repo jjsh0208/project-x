@@ -12,5 +12,12 @@ public class NewMember extends Member{
         super(name, date);
     }
 
+    public NewMember(String name, LocalDateTime date, int skill, String location) {
+        super(name, date, skill, location);
+    }
+    public NewMember(String name, LocalDateTime date,String location) {
+        super(name, date, location);
+    }
+
 
 }

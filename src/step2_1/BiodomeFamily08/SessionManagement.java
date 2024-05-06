@@ -7,5 +7,5 @@ public interface SessionManagement {
 
     void openSession(Session session); //연습 개설
     void cancelSession(String location, LocalDateTime localDateTime); //연습 취소
-    void postponeSession(String location, LocalDateTime localDateTime); //연습 연기
+    void postponeSession(String admin, String location, LocalDateTime localDateTime); //연습 연기
 }
