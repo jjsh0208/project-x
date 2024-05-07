@@ -18,6 +18,8 @@ public abstract class EnergySource {
     public int getEnergyAmount() {
         return energyAmount;
     }
+
+
     public void useEnergy(int value){
         if(total - value < 0){
             System.out.println("에너지가 부족해 "+ getSourceName() +"에너지 "+ value +"을 사용할 수 없습니다.");
@@ -27,7 +29,6 @@ public abstract class EnergySource {
             total -= value;
             this.energyAmount -= value;
         }
-
     }
     public abstract void produceEnergy(int value);
 }

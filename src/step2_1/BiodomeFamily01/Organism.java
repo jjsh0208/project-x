@@ -5,8 +5,6 @@ public class Organism {
     private String type;
     private String habitat;
 
-
-
     Organism(){
         this("없음","없음","없음");
     }
@@ -16,8 +14,6 @@ public class Organism {
         this.type = type;
         this.habitat = habitat;
     }
-
-
 
     public String getName() {
         return name;

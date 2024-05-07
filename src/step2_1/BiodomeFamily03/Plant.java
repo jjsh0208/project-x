@@ -10,9 +10,6 @@ public class Plant extends Organism{
         this.fruit = fruit;
     }
 
-
-
-
     @Override
     public void displayInfo() {
         System.out.println(getName() + ", " + getType() + ", " + getHabitat() + ", " + flowering + ", " + fruit );

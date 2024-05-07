@@ -7,8 +7,6 @@ public class Organism {
     private String characteristic;
     private  String lifeSpan;
 
-
-
     Organism(){
         this("없음","없음","없음,","","");
     }
@@ -20,7 +18,6 @@ public class Organism {
         this.characteristic = characteristic;
         this.lifeSpan = lifeSpan;
     }
-
 
     public String getCharacteristic() {
         return characteristic;
