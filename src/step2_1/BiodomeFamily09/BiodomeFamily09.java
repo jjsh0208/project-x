@@ -1,6 +1,9 @@
 package step2_1.BiodomeFamily09;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class BiodomeFamily09 {
@@ -14,6 +17,8 @@ public class BiodomeFamily09 {
             System.out.println("1. 메뉴추가");
             System.out.println("2. 메뉴목록");
             System.out.println("3. 메뉴주문");
+            System.out.println("4. 현재 주문 목록");
+            System.out.println("5. 주문 취소");
             System.out.println("========================");
             System.out.println("메뉴를 선택 하세요. ");
             System.out.println("========================");
@@ -29,8 +34,23 @@ public class BiodomeFamily09 {
                 case 3:
                     addOrder();
                     break;
+                case 4:
+                    caffe.orderListCheck();
+                    break;
+                case 5:
+                    orderCancle();
+                    break;
             }
         }
+    }
+
+    private static void orderCancle() {
+        System.out.print("고객의 이름 :");
+        String name = sc.nextLine();
+        System.out.print("취소할 메뉴 :");
+        String menu = sc.nextLine();
+
+        caffe.orderCancel(name,menu);
     }
 
     private static void addMenu() {
@@ -46,7 +66,7 @@ public class BiodomeFamily09 {
                 caffe.addMenu(new Coffee(bean +" 커피",price,bean));
                 break;
             case 2:
-                System.out.print("메뉴의 이름을 입력하시오 : ");
+                System.out.print("음료의 이름을 입력하시오 ( 예) 오렌지 쥬스, 캐모마일, 물: ");
                 String name = sc.nextLine();
 
                 caffe.addMenu(new Juice(name,price));
@@ -62,6 +82,7 @@ public class BiodomeFamily09 {
                 int month = Integer.parseInt(dateParts[1]);
                 int day = Integer.parseInt(dateParts[2]);
                 LocalDateTime expirationDate = LocalDateTime.of(year,month,day,0,0,0);
+
                 caffe.addMenu(new Sandwich(ingredient+" 샌드위치",price,ingredient,expirationDate));
                 break;
             default:
@@ -70,54 +91,98 @@ public class BiodomeFamily09 {
         }
     }
 
-    private static void addOrder() {
-        System.out.print("고객명 :");
-        String customer =  sc.nextLine();
-        while(true){
-            System.out.print("주문 (1. 커피 2. 음료 3. 샌드위치) : ");
-            int choice = Integer.parseInt(sc.nextLine());
-            switch(choice){
-                case 1:
-                    System.out.println("어떤 커피로 고르시겠습니까?");
-                    System.out.println("다크 커피, 블렌드 커피, 디카페인 커피");
-                    String coffee = sc.nextLine();
-                    System.out.println("어떤 사이즈로 주문하시겠습니까?");
-                    System.out.println("숏 , 톨 , 벤티");
-                    String size = sc.nextLine();
-                    System.out.println("몇 잔 주문하시겠습니까?");
-                    int quantity = Integer.parseInt(sc.nextLine());
-                    if (quantity != 1){
-                        caffe.addOrder(customer,coffee,size,quantity,choice);
-                    }//한개만 주문 되었을 때 addOrder 오버로딩 하기
-                    //생성자 오버로딩으로  조정
-                    break;
-                case 2:
-                    System.out.println("어떤 음료를 고르겠습니까?");
-                    System.out.println("캐모마일, 오렌지 쥬스, 물");
-                    String juice = sc.nextLine();
-                    System.out.println("어떤 사이즈로 주문하시겠습니까?");
-                    System.out.println("숏 , 톨 , 벤티");
-                     size = sc.nextLine();
-                    System.out.println("몇 잔 주문하시겠습니까?");
-                    quantity = Integer.parseInt(sc.nextLine());
-                    if (quantity != 1){
-                        caffe.addOrder(customer,juice,size,quantity,choice);
-                    }
-                    break;
-                case 3:
-                    System.out.println("어떤 샌드위치를 고르겠습니까?");
-                    System.out.println("야채 샌드위치, 햄 샌드위치, 치즈 샌드위치");
-                    String sandwich = sc.nextLine();
-                    System.out.println("몇 개 주문하시겠습니까?");
-                    quantity = Integer.parseInt(sc.nextLine());
-                    if (quantity != 1){
-                        caffe.addOrder(customer,sandwich,"",quantity,choice);
-                    }
-                    break;
-            }
 
+
+    private static void addOrder() {
+    System.out.print("고객명 : ");
+    String customer = sc.nextLine();
+    List<Order> list = new ArrayList<>();
+    boolean check = false;
+    while(true) {
+        System.out.print("주문 (1. 커피 2. 음료 3. 샌드위치, 0. 주문 종료) : ");
+        int choice = Integer.parseInt(sc.nextLine());
+        if ((choice == 0)) {
+            if (check){
+                caffe.addOrderList(list);
+                orderCheck(list);
+            }
+            return; // 주문 종료
+        }
+        check = true;
+        String itemName = "";
+        String size = "";
+        int quantity = 0;
+
+        switch (choice) {
+            case 1:
+                itemName = getOrderItem("어떤 커피로 고르시겠습니까?", new String[]{"다크 커피 /", "블렌드 커피 /", "디카페인 커피"});
+                size = getOrderSize();
+                break;
+            case 2:
+                itemName = getOrderItem("어떤 음료를 고르겠습니까?", new String[]{"캐모마일 /", "오렌지 쥬스 /", "물"});
+                size = getOrderSize();
+                break;
+            case 3:
+                itemName = getOrderItem("어떤 샌드위치를 고르겠습니까?", new String[]{"야채 샌드위치 /", "햄 샌드위치 /", "치즈 샌드위치"});
+                break;
         }
 
+        quantity = getQuantity(choice);
+        if (quantity > 1){ //1개 이상 주문
+            caffe.addOrder(customer, itemName, size, quantity, choice,list );
+        }
+        else{   //1개만 주문
+            caffe.addOrder(customer, itemName, size, choice,list );
+        }
+    }
+}
+    private static void orderCheck(List<Order> list) {
+        System.out.println("=== 주문이 추가되었습니다. ===");
+        int cnt = 1;
+        int sum = 0;
+        Order o = list.get(0);
+        System.out.println("고객: "+ o.getCustomer());
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
+        // getOrderTime()으로 LocalDateTime 객체를 가져오고, 이를 원하는 형식의 문자열로 변환
+        String formattedDateTime = o.getOrderTime().format(formatter);
+        System.out.println("주문일자 : "+ formattedDateTime+"\n");
+        for(Order order : list){
+            if (order.getMenu() instanceof Coffee || order.getMenu() instanceof Juice) {
+                System.out.println(cnt++ + ") " + order.getMenu().getName() + " (사이즈 : " + order.getSize() + ") - " +
+                        order.getQuantity() + "잔 : " + order.getMenu().getPrice()  * order.getQuantity());
+                sum += order.getMenu().getPrice();
+            }
+            if (order.getMenu() instanceof  Sandwich){
+                System.out.println(cnt++ + ") " + order.getMenu().getName() + "  - " + order.getQuantity() + "개 : " +
+                        order.getMenu().getPrice()  * order.getQuantity());
+                sum += order.getMenu().getPrice();
+            }
+        }
+        System.out.println("\n총 금액 : "+sum+"원");
+    }
+
+    private static String getOrderItem(String message, String[] options) {
+        System.out.println(message);
+        for (String option : options) {
+            System.out.print(option +" ");
+        }
+        return sc.nextLine();
+    }
+
+    private static String getOrderSize() {
+        System.out.println("어떤 사이즈로 주문하시겠습니까?");
+        System.out.println("숏 , 톨 , 벤티");
+        return sc.nextLine();
+    }
+
+    private static int getQuantity(int choice) {
+        if (choice == 3) {
+            System.out.println("몇 개 주문하시겠습니까?");
+        } else {
+            System.out.println("몇 잔 주문하시겠습니까?");
+        }
+        return Integer.parseInt(sc.nextLine());
     }
 
 }
