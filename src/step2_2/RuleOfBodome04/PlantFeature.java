@@ -2,13 +2,13 @@ package step2_2.RuleOfBodome04;
 
 public class PlantFeature{
     private String color;
-    private String plantFruit;
-    private String plantFlowering;
+    private String fruit;
+    private String flowering;
 
 
-    public PlantFeature(String name, String type, String color, String plantFruit, String plantFlowering) {
+    public PlantFeature(String color, String fruit, String flowering) {
         this.color = color;
-        this.plantFruit = plantFruit;
-        this.plantFlowering = plantFlowering;
+        this.fruit = fruit;
+        this.flowering = flowering;
     }
 }

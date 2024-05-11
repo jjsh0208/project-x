@@ -5,7 +5,7 @@ public class MicrobeFeature{
     private String metabolism;
 
 
-    public MicrobeFeature(String name, String type, String ph, String metabolism) {
+    public MicrobeFeature(String ph, String metabolism) {
         this.ph = ph;
         this.metabolism = metabolism;
     }
