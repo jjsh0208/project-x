@@ -8,7 +8,7 @@ public class Player {
 
     private  boolean isPlay;
     Player(){
-        this.volume = 1;
+        this.volume =  1;
         this.playIndex = -1;
     }
 

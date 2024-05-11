@@ -5,6 +5,7 @@ import java.util.Arrays;
 public class BiodomeFamily06 {
     static ArrayList<Animal> animals = new ArrayList<Animal>();
     static ArrayList<Animal_Enum> bonus = new ArrayList<Animal_Enum>();
+
     private static void animalSort(ArrayList<Animal> animals) {
     //일렬 이동 중 동물은 앞만 볼 수 있고 뒤는 볼 수 없다. (즉, 피식자는 포식자 뒤에 피할 수 있다.)
     //호랑이는 사슴의 포식자로, 사슴 뒤에 호랑이가 올 수 없다.
@@ -58,22 +59,21 @@ public class BiodomeFamily06 {
 
 
     public static void main(String[] args) {
-        animals.add(new Animal("제니","원숭이",4));
-        animals.add(new Animal("고먀","코끼리",4));
-        animals.add(new Animal("타이","호랑이",9));
-        animals.add(new Animal("로아","코뿔소",5));
-        animals.add(new Animal("바비","사슴",7));
-
-        System.out.println("변경 전 : "+  Arrays.toString(animals.toArray()));
-
-        animalSort(animals);
-
-        System.out.println(Arrays.toString(animals.toArray()));
+//        animals.add(new Animal("제니","원숭이",4));
+//        animals.add(new Animal("고먀","코끼리",4));
+//        animals.add(new Animal("타이","호랑이",9));
+//        animals.add(new Animal("로아","코뿔소",5));
+//        animals.add(new Animal("바비","사슴",7));
+//
+//        System.out.println("변경 전 : "+  Arrays.toString(animals.toArray()));
+//
+//        animalSort(animals);
+//
+//        System.out.println(Arrays.toString(animals.toArray()));
 
 
         //bonus
         bonus.add(Animal_Enum.MONKEY);
-
         bonus.add(Animal_Enum.ELEPHANT);
         bonus.add(Animal_Enum.TIGER);
         bonus.add(Animal_Enum.RHINOCEROS);

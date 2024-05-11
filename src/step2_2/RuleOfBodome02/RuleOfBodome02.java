@@ -6,7 +6,6 @@ public class RuleOfBodome02 {
     static Library library;
     static Scanner sc;
     public static void main(String[] args) {
-        Manager manager = new Manager("jjssh0208","전승현");
         library = new Library();
         sc = new Scanner(System.in);;
 

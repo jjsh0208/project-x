@@ -29,6 +29,8 @@ public class MusicLibary {
                     + ((ManagerSong) song).getGenre() + "\"" + " 추가되었습니다.");
         }
         songs.add(song);
+
+
         Collections.shuffle(songs); //bonus
     }
 
@@ -47,7 +49,6 @@ public class MusicLibary {
                 iterator.remove();
                 return;
             }
-
         }
         System.out.println("해당 제목의 노래가 존재하지않습니다.");
     }
@@ -120,7 +121,18 @@ public class MusicLibary {
                 }
                 break;
             case 4:
-               animalList();
+                System.out.println("==동물의 위한 노래==");
+                for (Song s : songs){
+                    if (s instanceof AnimalSong){
+                        System.out.println("\""+s.toString()+"\"");
+                        cnt++;
+                        
+                    }
+                }
+                if(cnt == 0){
+                    System.out.println("노래없음");
+                }
+//               animalList();
                 break;
             case 5:
                 humanLList();
