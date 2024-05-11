@@ -1,5 +1,6 @@
 package step2_2.RuleOfBodome02;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,14 +10,22 @@ public interface MemberControl {
 
     List<User> users = new ArrayList<>(); //도서관 사용자 목록
 
-    default void addMember(Member member) {
-        System.out.println("새로운 이용자 \'"+ member.getName() +"\' 를/을 등록합니다.");
-        users.add(member);
-    }
-
-    default void addManager(Manager manager) {
-        System.out.println("새로운 관리자 \'"+ manager.getName() +"\' 를/을 등록합니다.");
-        users.add(manager);
+    default void addMember(User user) {
+        if (user instanceof  Member){
+            Member member = (Member)user;
+            System.out.println("새로운 이용자 \'"+ member.getName() +"\' 를/을 등록합니다.");
+            users.add(member);
+        }
+        if (user instanceof  Manager){
+            Manager manager = (Manager)user;
+            System.out.println("새로운 관리자 \'"+ manager.getName() +"\' 를/을 등록합니다.");
+            users.add(manager);
+        }
+        if (user instanceof  Student){
+            Student student = (Student)user;
+            System.out.println("새로운 학생 \'"+ student.getName() +"\' 를/을 등록합니다.");
+            users.add(student);
+        }
     }
 
     default boolean userExists(String id, String name, boolean checkManager) {
@@ -33,8 +42,7 @@ public interface MemberControl {
 
     default Manager managerCheck(String id, String name){
         for(User user : users){
-            User u = user;
-            if(u instanceof Manager &&  u.getUserId().equals(id) && u.getName().equals(name)){
+            if(user instanceof Manager &&  user.getUserId().equals(id) && user.getName().equals(name)){
                 return (Manager) user;
             }
         }

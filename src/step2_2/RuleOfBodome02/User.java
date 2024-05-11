@@ -14,6 +14,17 @@ class User {
         this. books = new ArrayList<>();
     }
 
+    public void bookBorrow(Book book){
+        books.add(book);
+    }
+
+    public void bookReturn(Book book){
+        books.remove(book);
+    }
+
+
+
+
     public ArrayList<Book> getBooks() {
         return books;
     }
