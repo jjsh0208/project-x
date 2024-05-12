@@ -1,4 +1,4 @@
-package step2_2.RuleOfBodome03;
+package step2_2.RuleOfBiodome03;
 
 class DeviceDetails implements Device{ //기계 세부사항
     private String model;

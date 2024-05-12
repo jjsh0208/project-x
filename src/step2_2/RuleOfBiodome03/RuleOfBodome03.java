@@ -1,4 +1,4 @@
-package step2_2.RuleOfBodome03;
+package step2_2.RuleOfBiodome03;
 
 import java.util.Scanner;
 

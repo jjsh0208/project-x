@@ -1,4 +1,4 @@
-package step2_2.RuleOfBodome02;
+package step2_2.RuleOfBiodome02;
 
 import java.util.ArrayList;
 import java.util.Iterator;

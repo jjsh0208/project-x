@@ -1,4 +1,4 @@
-package step2_2.RuleOfBodome04;
+package step2_2.RuleOfBiodome04;
 
 public class PlantFeature{
     private String color;
@@ -10,5 +10,17 @@ public class PlantFeature{
         this.color = color;
         this.fruit = fruit;
         this.flowering = flowering;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public String getFruit() {
+        return fruit;
+    }
+
+    public String getFlowering() {
+        return flowering;
     }
 }

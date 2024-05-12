@@ -1,4 +1,4 @@
-package step2_2.RuleOfBodome02;
+package step2_2.RuleOfBiodome02;
 
 class Book {
     private String isbn;

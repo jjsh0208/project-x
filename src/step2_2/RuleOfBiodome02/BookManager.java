@@ -1,4 +1,4 @@
-package step2_2.RuleOfBodome02;
+package step2_2.RuleOfBiodome02;
 
 public interface BookManager { //매니저가 가져야할 기능만 가지고있음
 

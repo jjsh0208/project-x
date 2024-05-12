@@ -1,4 +1,4 @@
-package step2_2.RuleOfBodome04;
+package step2_2.RuleOfBiodome04;
 
 public class AnimalFeature {
     private String characteristic; //특징
