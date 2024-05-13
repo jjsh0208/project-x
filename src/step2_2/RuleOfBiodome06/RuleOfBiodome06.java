@@ -23,8 +23,7 @@ public class RuleOfBiodome06 {
             int choice = Integer.parseInt(sc.nextLine());
             switch (choice){
                 case 1:
-                    System.out.println("동물 배열 입력 : ");
-                    String animals = sc.nextLine();
+                    String animals = args[0];
 
                     String[] animalArray = Arrays.stream(animals.replaceAll("[\\[\\]]", "").split(",\\s*"))
                             .toArray(String[]::new);
@@ -60,7 +59,7 @@ public class RuleOfBiodome06 {
                     Map<Integer, ArrayList<String>> test = analyzer.bonus();
 
                     List<Integer> list = new ArrayList<>(test.keySet());
-                    Collections.sort(list);
+                    list.sort(Collections.reverseOrder());
 
                     for (Integer a : list){
                         System.out.println(a+"회 : " + Arrays.toString(test.get(a).toArray()));
