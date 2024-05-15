@@ -52,6 +52,4 @@ public interface MemberControl {
     default boolean memberCheck(String id, String name){
         return userExists(id, name, false);
     }
-
-
 }

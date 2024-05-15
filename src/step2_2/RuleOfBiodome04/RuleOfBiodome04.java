@@ -2,7 +2,7 @@ package step2_2.RuleOfBiodome04;
 
 import java.util.Scanner;
 
-public class RuleOfBodome04 {
+public class RuleOfBiodome04 {
     static Scanner sc;
     static BiologicalSystem bs;
     public static void main(String[] args) {

@@ -16,7 +16,7 @@ import java.util.Scanner;
 SRP 를 위반한다.
 */
 
-public class RuleOfBodome03 {
+public class RuleOfBiodome03 {
     static Scanner sc;
     static DeviceController dc;
 

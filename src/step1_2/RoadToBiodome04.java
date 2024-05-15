@@ -43,6 +43,7 @@ public class RoadToBiodome04 {
         int [] energy = Arrays.stream(args.replaceAll("[^0-9]", " ").trim().split("\\s+"))
                 .mapToInt(s -> Integer.parseInt(s.trim()))
                 .toArray();
+        
         //선택정렬
         for(int i=0; i<energy.length; i++) { // 0 ~ 4
             for(int j=i+1; j<energy.length; j++) {

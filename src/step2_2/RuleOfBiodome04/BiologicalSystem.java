@@ -70,5 +70,24 @@ public class BiologicalSystem<T> {
             }
         });
         System.out.println("이름을 기준으로 오름차순 완료");
+
+
+        for (BiologicalEntity<T> b : bs){
+            if (b.getFeature() instanceof  AnimalFeature){
+                System.out.println(b.getName() + ", " + b.getType() + ", "+ ((AnimalFeature) b.getFeature()).getCharacteristic() +
+                        ((AnimalFeature) b.getFeature()).getClassification() +", "+ ((AnimalFeature) b.getFeature()).getLife());
+                continue;
+            }
+            if (b.getFeature() instanceof  PlantFeature){
+                System.out.println(b.getName() + ", " + b.getType() + ", " + ((PlantFeature) b.getFeature()).getColor() + ", "+
+                        ((PlantFeature) b.getFeature()).getFruit()+ ", " + ((PlantFeature) b.getFeature()).getFlowering());
+                continue;
+            }
+            if (b.getFeature() instanceof  MicrobeFeature){
+                System.out.println(b.getName() + ", " + b.getType() + ", " + ((MicrobeFeature) b.getFeature()).getPh() + ", "+
+                        ((MicrobeFeature) b.getFeature()).getMetabolism());
+            }
+        }
+
     }
 }

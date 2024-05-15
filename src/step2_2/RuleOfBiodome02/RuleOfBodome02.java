@@ -9,7 +9,6 @@ public class RuleOfBodome02 {
         library = new Library();
         sc = new Scanner(System.in);;
 
-
         while(true){
             System.out.println("========================");
             System.out.println("1. 회원추가");
@@ -50,7 +49,6 @@ public class RuleOfBodome02 {
             }
         }
     }
-    
 
     //회원 추가
     private static void addMember() {
