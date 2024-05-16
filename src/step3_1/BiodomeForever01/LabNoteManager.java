@@ -12,11 +12,11 @@ public class LabNoteManager {
         loadFiles();
     }
     public void loadFiles(){
-        load("213011210700_ShadeMist");
-        load("213012071130_Glowberry");
-        load("213101291200_SolarisThorn");
-        load("213102120900_AquaFern");
-        load("213104012200_NightBlossom");
+        read("213011210700_ShadeMist");
+        read("213012071130_Glowberry");
+        read("213101291200_SolarisThorn");
+        read("213102120900_AquaFern");
+        read("213104012200_NightBlossom");
     }
 
 
@@ -30,7 +30,7 @@ public class LabNoteManager {
 
 
 
-    public void load (String fileName){
+    public void read (String fileName){
         FileInputStream file = null;
         String p = "C:\\coding\\Project-X\\src\\step3_1\\BiodomeForever01\\";
 
