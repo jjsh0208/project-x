@@ -86,17 +86,6 @@ public class EcoDataManager {
 //                ecoDateAnalyze.LogAvg(e); //bonus
             }
 
-//
-//            String temp;
-//            String content = "";
-//            while((temp = br.readLine()) != null){
-//                String[] Eco = temp.split(",");
-//
-//                content += (Eco[0]+","+Eco[3]+" - "+Eco[4]+'\n');
-//
-//            }
-//
-//            System.out.println(content);
         } catch(FileNotFoundException e){ //지정된 경로에 파일이 존재하지않는 경우
             System.out.println("존재하지 않는 파일입니다. 파일 이름을 다시 확인해주세요.");
             e.printStackTrace();

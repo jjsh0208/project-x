@@ -28,8 +28,6 @@ public class LabNoteManager {
         }
     }
 
-
-
     public void read (String fileName){
         FileInputStream file = null;
         String p = "C:\\coding\\Project-X\\src\\step3_1\\BiodomeForever01\\";

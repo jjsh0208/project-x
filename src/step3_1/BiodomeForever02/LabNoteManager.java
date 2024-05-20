@@ -19,7 +19,7 @@ public class LabNoteManager {
 
         try {
             file = new FileInputStream(p + fileName+".txt");
-            InputStreamReader reader=new InputStreamReader(file,"UTF-8");
+            InputStreamReader reader = new InputStreamReader(file,"UTF-8");
             int i;
             String content = "";
 
@@ -29,7 +29,6 @@ public class LabNoteManager {
                 cnt++;
             }
             empty(cnt);
-
 
             LabNote labNote = new LabNote(fileName,content);
             labNote.NotePrint();

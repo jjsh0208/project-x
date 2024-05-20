@@ -10,7 +10,7 @@ public class EcoDateAnalyze {
     }
 
     public void LogAvg(EcoData ecoData){
-        double logAvg = 2 / (Math.log(ecoData.getOxygenLevel() / 100) + Math.log(ecoData.getHumidity()/100));
+        double logAvg = 2 * (Math.log(ecoData.getOxygenLevel() / 100) + Math.log(ecoData.getHumidity()/100));
         System.out.printf("%.2f",logAvg);
     }
 }
