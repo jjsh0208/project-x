@@ -69,12 +69,14 @@ public class PlantHashMap<K,V> {
             return e.getCharacteristic();
         }
 
+
         System.out.println("해당 이름의 식물이 존재하지않습니다.");
         return  null;
     }
 
     public void remove(K plant){
         System.out.println("(식물 삭제)");
+
         int index = plant.hashCode() % size;
 
         Entity<K,V> current = entity[index];
