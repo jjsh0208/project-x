@@ -9,7 +9,6 @@ import java.util.List;
 
 
 public class Directory {
-    private final String FILE_PATH = "C:\\coding\\Project-X\\src\\step3_1\\BiodomeForever09\\";
 
     public void duplicationCheck(String directoryPath)  {
         try{
