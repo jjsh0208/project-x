@@ -15,7 +15,8 @@ public class RunBiodome03 {
             System.out.println("\n1. 과일 판매하기");
             System.out.println("2. 과일 재고 추가하기");
             System.out.println("3. 모든 과일 재고 조회하기");
-            System.out.println("4. 종료하기");
+            System.out.println("4. 최근 판매 기록 조회");
+            System.out.println("5. 종료하기");
             System.out.print("메뉴를 선택하세요: ");
             choice = Integer.parseInt(sc.nextLine());
 
@@ -30,6 +31,9 @@ public class RunBiodome03 {
                     fs.show();
                     break;
                 case 4:
+                    searchSell();
+                    break;
+                case 5:
                     fs.save();
                     sc.close();
                     System.exit(0);
@@ -39,6 +43,12 @@ public class RunBiodome03 {
                     break;
             }
         }
+    }
+
+    private static void searchSell() {
+        System.out.println("어떤 과일을 조회하시겠습니까?");
+        String fruit = sc.nextLine();
+        fs.searchSell(fruit);
     }
 
     private static void addQuantity() {
