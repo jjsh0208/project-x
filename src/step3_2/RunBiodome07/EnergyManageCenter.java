@@ -1,6 +1,8 @@
 package step3_2.RunBiodome07;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 public class EnergyManageCenter {
     private static EnergyManageCenter singleton;
@@ -39,7 +41,6 @@ public class EnergyManageCenter {
             System.out.println(">>> 보유한 에너지가 요청한 에너지만큼 없습니다.");
         }
 
-
         for (City c : cities){
             if (c.getName().equals(name)){
                 c.setEnergy(energy);
@@ -63,15 +64,24 @@ public class EnergyManageCenter {
 //에너지가 추가된 정보를 에너지 보유량이 적은 2개 도시에 알린다.
 //에너지 보유량이 적은 도시에 "중앙 센터에 에너지가 [보충량] 보충되었습니다."라는 메시지를 출력한다.
 //도시별 에너지 보유량이 동일한 경우 모든 도시에서 메시지가 출력된다.
+        Collections.sort(cities,(city1, city2 )->city1.getEnergy() - city2.getEnergy());
 
-
-
-
-
-
-
-        for (City c : cities){
-            System.out.printf("- %s : 중앙센터에 에너지가 %d 보충되었습니다.\n",c.getName(),energy);
+        int cnt = 0;
+        boolean equals = true;
+        for (City c: cities){
+            for (City city : cities){
+                if (c.getEnergy() != city.getEnergy()){
+                    equals = false;
+                }
+            }
+            if (equals){
+                System.out.printf("- %s : 중앙센터에 에너지가 %d 보충되었습니다.\n",c.getName(),energy);
+            }else if (cnt < 2){
+                System.out.printf("- %s : 중앙센터에 에너지가 %d 보충되었습니다.\n",c.getName(),energy);
+            }else{
+                break;
+            }
+            cnt++;
         }
         System.out.println();
     }
