@@ -1,6 +1,5 @@
 package step3_2.RunBiodome09;
 
-import static step3_2.RunBiodome09.RunBiodome09.sc;
 
 public class WaterRequestThread implements Runnable{
 
