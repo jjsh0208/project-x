@@ -1,7 +1,52 @@
 package step4_1.VitaBiodome06;
 
-public class VitaBiodome06 {
-    public static void main(String[] args) {
-        //test
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.HashMap;
+
+public class VitaBiodome06 extends HttpServlet {
+    HashMap<String,Fruit> fruitHashMap = new HashMap<>();
+    @Override
+    public void init() {
+        fruitHashMap.put("apple", new Fruit("apple",3000,25));
+        fruitHashMap.put("melon", new Fruit("melon",17000,12));
+        fruitHashMap.put("orange", new Fruit("orange",5000,19));
+        fruitHashMap.put("greape", new Fruit("greape",6000,0));
+    }
+
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        PrintWriter out = resp.getWriter();
+        String url = req.getRequestURI();
+
+        String[] parts = url.split("/");
+        if (parts.length > 1){
+
+        }
+
+    }
+
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        super.doPost(req, resp);
+    }
+
+
+    @Override
+    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        super.doPut(req, resp);
+    }
+
+
+    @Override
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        super.doDelete(req, resp);
     }
 }
