@@ -9,6 +9,11 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
 
+//특정 파일만 빌드하는 방법 알아내서 VitaBiodome06만 빌드하여 실행
+
+
+
+
 public class VitaBiodome06 extends HttpServlet {
     HashMap<String,Fruit> fruitHashMap = new HashMap<>();
     @Override
@@ -23,13 +28,10 @@ public class VitaBiodome06 extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         PrintWriter out = resp.getWriter();
-        String url = req.getRequestURI();
 
-        String[] parts = url.split("/");
-        if (parts.length > 1){
-
-        }
-
+        resp.setStatus(HttpServletResponse.SC_OK);
+        out.println("{\"message\" : \"test\" ");
+        //왜안되노
     }
 
 
