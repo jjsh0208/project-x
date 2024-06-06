@@ -31,7 +31,7 @@ public class VitaBiodome06 extends HttpServlet {
 
         resp.setStatus(HttpServletResponse.SC_OK);
         out.println("{\"message\" : \"test\" ");
-        //왜안되노
+        //test
     }
 
 
