@@ -19,7 +19,7 @@ public class VitaBiodome03 {
 
                 //클라이언트 소켓으로부터 입력스트림 생성
                 BufferedReader bf = new BufferedReader(new InputStreamReader(client.getInputStream()));
-
+//메모 잘해주기
                 //요청 읽어오기
                 String request = bf.readLine(); //GET 방식으로 서버에 요청한다
                 //예) localhost:8080 으로 접속하면 GET / HTTP/1.1
