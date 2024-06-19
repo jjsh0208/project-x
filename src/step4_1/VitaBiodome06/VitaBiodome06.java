@@ -30,7 +30,7 @@ public class VitaBiodome06 extends HttpServlet {
         PrintWriter out = resp.getWriter();
 
         resp.setStatus(HttpServletResponse.SC_OK);
-//        out.println("{\"message\" : \"test\" "); 수정해야함
+//        out.println("{\"message\" : \"test\" ");
 
     }
 
