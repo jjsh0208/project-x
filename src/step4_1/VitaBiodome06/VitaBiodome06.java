@@ -28,7 +28,7 @@ public class VitaBiodome06 extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         PrintWriter out = resp.getWriter();
-
+        //제거
         resp.setStatus(HttpServletResponse.SC_OK);
 
     }
